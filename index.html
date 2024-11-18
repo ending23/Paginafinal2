@@ -1,0 +1,107 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            border-radius: 20px;
+            width: 15%;
+            height: 200px;
+            margin: 10px 30px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #333;
+        }
+        .presentacion {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin: 15px 30px;
+        }
+        div {
+            margin: 0 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" class="logo">
+    <h1>Bienvenido a Nuestro Sitio Web</h1>
+</header>
+
+<nav>
+    <a href="ventas.html">Ventas (Productos)</a>
+    <a href="facturacion.html">Facturación</a>
+    <a href="faq.html">Preguntas Frecuentes</a>
+
+    <!-- Mostrar enlace de edición solo si está autenticado -->
+    <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="listado_productos.php">Edición de Productos</a>
+    <?php else: ?>
+        <a href="login.php">Iniciar Sesión para Editar Productos</a>
+    <?php endif; ?>
+</nav>
+
+<section class="presentacion">
+    <div>
+        <img src="imagen1.jpg">
+    </div>
+    <div>
+        <h2>Bienvenido a Nuestra Plataforma</h2>
+        <p>En nuestra empresa, nos dedicamos a ofrecer productos de calidad, un servicio de facturación eficiente y respuestas claras a tus preguntas más frecuentes. Explora nuestras diferentes áreas y descubre cómo podemos ayudarte a cumplir con tus necesidades. Contamos con un equipo de profesionales que se esfuerzan por brindarte la mejor experiencia posible.</p>
+        <p>Accede a nuestra sección de Ventas para ver los productos que ofrecemos, visita Facturación para gestionar tus recibos y pagos, o dirígete a Preguntas Frecuentes si necesitas más información sobre nuestros servicios.</p>
+        <p>Estamos comprometidos con la transparencia, la calidad y la satisfacción de nuestros clientes. ¡Gracias por visitarnos!</p>
+    </div>
+    
+</section>
+
+
+<footer>
+    <p>&copy; 2024 Mi Empresa. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
